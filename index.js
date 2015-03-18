@@ -1,6 +1,5 @@
 /*
  * OrderLite Prototype
- * Jacob Adkins
 */
 
 // this array will have its values changed to match order names
