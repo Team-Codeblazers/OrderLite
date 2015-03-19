@@ -6,9 +6,7 @@
 var iTimers = 0;
 
 // this array will have its values changed to match order names
-var sButtons = ["r1c1 default", "r1c2 default", "r1c3 default",
-                "r2c1 default", "r2c2 default", "r2c3 default",
-                "r3c1 default", "r3c2 default", "r3c3 default"]
+var sButtons = ["", "", "", "", "", "", "", "", ""]
 
 // print names of orders in their boxes at startup
 $(document).ready(function(){
