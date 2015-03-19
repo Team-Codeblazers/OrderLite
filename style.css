@@ -1,0 +1,76 @@
+/*
+ * OrderLite Prototype
+*/
+
+body {
+  background-color: #CCCCCC;
+}
+
+div {
+  border-style: double;
+  border-width: medium;
+}
+
+h1 {
+  text-align: center;
+}
+
+#col1, #col2, #col3 {
+  position: absolute;
+  width: 33.10%;
+  height: 100%;
+}
+
+#col2 {
+  left: 33.10%;
+}
+
+#col3 {
+  left: 66.20%;
+}
+
+#o0, #o1, #o2 {
+  float: left;
+  width: 100%;
+  height: 32.5%;
+}
+
+#o3, #o4, #o5 {
+  float: left;
+  width: 100%;
+  height: 32.5%;
+}
+
+#o6, #o7, #o8 {
+  float: left;
+  width: 100%;
+  height: 32.5%;
+}
+
+#timers {
+  background-color: #FFFFFF;
+  position: absolute;
+  float: left;
+  height: 80%;
+  width: 22%;
+  left: 1%;
+}
+
+#orders {
+  background-color: #FFFFFF;
+  position: absolute;
+  float: left;
+  height: 80%;
+  width: 75%;
+  left: 24%;
+}
+
+#form {
+  background-color: #FFFFFF;
+  position: absolute;
+  float: right;
+  height: 7%;
+  width: 98%;
+  top: 90%;
+  left: 1%;
+}

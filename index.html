@@ -1,0 +1,47 @@
+<!--
+  OrderLite Prototype
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="jquery.tinytimer.js"></script>
+    <script src="jquery.tinytimer.min.js"></script>
+    <title>OrderLite</title>
+  </head>
+  <body>
+    <h1>OrderLite</h1>
+    <!-- Div containing the recipe timers -->
+      <div id="timers">
+      </div>
+    <!-- Div containing order buttons -->
+      <div id="orders">
+        <div id="col1">
+          <div id="o0"><h3></h3></div>
+          <div id="o1"><h3></h3></div>
+          <div id="o2"><h3></h3></div>
+        </div>
+        <div id="col2">
+          <div id="o3"><h3></h3></div>
+          <div id="o4"><h3></h3></div>
+          <div id="o5"><h3></h3></div>
+        </div>
+        <div id="col3">
+          <div id="o6"><h3></h3></div>
+          <div id="o7"><h3></h3></div>
+          <div id="o8"><h3></h3></div>
+        </div>
+      </div>
+    <!-- Div containing the new menu item form -->
+      <div id="form">
+        <form>
+          Enter New Order Name: <input type="text" name="oName" id="oName">
+          Enter New Order Position (0-8): <input type="text" name="oPos" id="oPos">
+          <input type="submit" value="Add New Order" id="addOrder">
+        </form>
+      </div>
+  </body>
+  <script type="text/javascript" src="index.js"></script>
+</html>
