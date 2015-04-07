@@ -3,6 +3,7 @@ $(document).ready(function () {
     $.getJSON('json/Recipes.json', function (data) {
 
     	var opt = "";
+    	//var ingr = "";
     	if (data.length === 0) $("#order-list").append("<div class='orderDiv'><p id='no-result'>No results</p></div>");
 
     	else {
@@ -11,9 +12,18 @@ $(document).ready(function () {
     			opt += '<ul style="list-style-type:none"><li><button class="btn btn-default btn-lg"' +
     			'"value="' + recipe.recipeName +
     			'">' + recipe.recipeName +
-    			'</button></li></ul>';
-    			$("#order-list").html(opt);
+    			'</button></li><li><p>Ingredients: ';
+    			$.each(recipe.ingredients, function(key, ingredient) {
+    				opt += ingredient + ', ';			
+    			});
+    			opt = opt.replace(/,\s*$/, "");
+    			opt += '</p></li><li><p>Price: $' +
+    			recipe.price.toFixed(2) +
+    			'</p></li></ul>';
     		});
+
+    		
+    		$("#order-list").html(opt);
     	}
 
     });
