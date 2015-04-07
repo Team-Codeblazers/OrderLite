@@ -15,6 +15,15 @@ h1 {
   text-align: center;
 }
 
+#create-order, #order-list {
+	text-align: center;
+	display: block;
+	margin: auto;
+	margin-top: 150px;
+	
+}
+
+
 #col1, #col2, #col3 {
   position: absolute;
   width: 33.10%;
