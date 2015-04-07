@@ -6,11 +6,6 @@ body {
   background-color: #CCCCCC;
 }
 
-div {
-  border-style: double;
-  border-width: medium;
-}
-
 h1 {
   text-align: center;
 }
@@ -19,7 +14,7 @@ h1 {
 	text-align: center;
 	display: block;
 	margin: auto;
-	margin-top: 150px;
+	margin-top: 50px;
 	
 }
 
