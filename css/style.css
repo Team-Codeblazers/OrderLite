@@ -6,13 +6,29 @@ body {
   background-color: #CCCCCC;
 }
 
-div {
-  border-style: double;
-  border-width: medium;
-}
-
 h1 {
   text-align: center;
+}
+
+#create-order {
+	text-align: center;
+	display: block;
+	margin: auto;
+	margin-top: 50px;
+}
+
+#order-list {
+	margin-bottom: 80px;
+}
+
+.resultDiv {
+	width: 30%;
+	/*display: inline-block;*/
+	float: left;
+	position: relative;
+	background-color: white;
+	border: solid 1px black;
+	border-radius: 10px;
 }
 
 #col1, #col2, #col3 {
