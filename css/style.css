@@ -19,6 +19,17 @@ h1 {
 	margin-bottom: 80px;
 }
 
+#cart {
+	width: 30%;
+	height: 100%;
+	float: right;
+	position: relative;
+	background-color: white;
+	border: solid 1px black;
+	border-radius: 10px;
+	text-align: center;
+}
+
 .resultDiv {
 	width: 22%;
 	float: left;
@@ -48,6 +59,7 @@ h1 {
 	min-width: 55px;
 	min-height: auto;
 	overflow: hidden;
+	margin-top: 15px;
 }
 
 .description {

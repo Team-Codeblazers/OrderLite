@@ -8,6 +8,8 @@ function load() {
 }
 
 function loadOptions(){
+    $(".resultDiv").remove();
+
     // Get data from file as JSON
     $.getJSON('json/Recipes.json', function (data) {
 
@@ -30,35 +32,48 @@ function loadOptions(){
                     ingr = ingr.replace(/,\s*$/, "");
                     $("#recipe"+recipe.recipeID+">ul").append("<li><h5 class='name'><b>"+recipe.recipeID+". "+recipe.recipeName+"</b></h5></li><li class='description'>\""+recipe.description+"\"</li><li class='ingredientList'><b>Ingredients:</b> "+ingr+"</li><li class='.price'><b>Price:</b> $"+recipe.price.toFixed(2)+"</li>");
 
+                    addListeners();
                 }
+
+
+                var divs = $(".resultDiv");
+                var maxHeight = 0;
+
+                $.each(divs, function(){
+                    var thisHeight = $(this).height();
+                    if ( thisHeight > maxHeight){
+                      maxHeight = thisHeight;
+                    }
+                });
+
+                $.each(divs, function(){
+                    $(this).height(maxHeight);
+                });
             });
 
-            var divs = $(".resultDiv");
-            var maxHeight = 0;
-
-            $.each(divs, function(){
-                var thisHeight = $(this).height();
-                if ( thisHeight > maxHeight){
-                  maxHeight = thisHeight;
-                }
-            });
-
-            $.each(divs, function(){
-                $(this).height(maxHeight);
-            });
         }
     });
 }
 
 function addListeners(){
-  $(".orderDiv").hover(function(){
-    $(this).css("background-color","grey");
-}, function(){
-    $(this).css("background-color","white");
+    // hover and action for each item
+    $(".resultDiv").hover(function(){
+        $(this).css("background-color","#E5E5E3");
+    }, function(){
+        $(this).css("background-color","white");
+    });
 
-});
+    $(".resultDiv").off("click").on("click", function(){
+        console.log($(this));
+        localStorage.setItem("selectedRecipe", recipe);
+    });
 
-  $("#home").button().off("click").on("click",function(){
-    window.location = "index.html";
-});
+    // home button
+    $("#home").button().off("click").on("click",function(){
+        if(window.location === "order.html") {
+            var r = confirm("Are you sure you want to leave?");
+            if (r === true)
+                window.location = "index.html";
+        }
+    });
 }
