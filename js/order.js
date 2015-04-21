@@ -32,9 +32,7 @@ function loadOptions(){
                     ingr = ingr.replace(/,\s*$/, "");
                     $("#recipe"+recipe.recipeID+">ul").append("<li><h5 class='name'><b>"+recipe.recipeID+". "+recipe.recipeName+"</b></h5></li><li class='description'>\""+recipe.description+"\"</li><li class='ingredientList'><b>Ingredients:</b> "+ingr+"</li><li class='.price'><b>Price:</b> $"+recipe.price.toFixed(2)+"</li>");
 
-                    addListeners();
                 }
-
 
                 var divs = $(".resultDiv");
                 var maxHeight = 0;
@@ -52,6 +50,7 @@ function loadOptions(){
             });
 
         }
+        addListeners();
     });
 }
 
@@ -65,15 +64,18 @@ function addListeners(){
 
     $(".resultDiv").off("click").on("click", function(){
         console.log($(this));
+        recipe = $(this).find("h5").html();
         localStorage.setItem("selectedRecipe", recipe);
     });
 
     // home button
-    $("#home").button().off("click").on("click",function(){
-        if(window.location === "order.html") {
+    $("#home").click(function(){
+        if(window.location.pathname === "/orderlite/order.html") {
             var r = confirm("Are you sure you want to leave?");
             if (r === true)
-                window.location = "index.html";
+                window.location.href = "index.html";
         }
+        else
+            window.location = "index.html";
     });
 }

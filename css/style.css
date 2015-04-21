@@ -16,7 +16,11 @@ h1 {
 }
 
 #order-list {
-	margin-bottom: 80px;
+	padding-left: 10px;
+}
+
+#order-cart {
+	padding-right: 10px;
 }
 
 #cart {
@@ -32,6 +36,7 @@ h1 {
 
 .resultDiv {
 	width: 22%;
+	height: 100%;
 	float: left;
 	position: relative;
 	background-color: white;
