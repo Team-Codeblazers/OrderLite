@@ -4,7 +4,6 @@ $(document).ready(function () {
 
 function load() {
     loadOptions();
-    //addListeners();
 }
 
 function loadOptions(){
@@ -62,11 +61,26 @@ function addListeners(){
         $(this).css("background-color","white");
     });
 
+    // click to add to cart
     $(".resultDiv").off("click").on("click", function(){
-        console.log($(this));
-        recipe = $(this).find("h5").html();
-        localStorage.setItem("selectedRecipe", recipe);
-    });
+        // find id of recipe being added
+        r = $(this).context.id;
+        r = r.replace(/\D/g,'');
+        $.getJSON('json/Recipes.json', function (data) {
+            var d = data.Recipes;
+            //var recipe = d.filter(function(d){return d.recipeID == r});
+            //console.log(d[r-1].description);
+            var add = "<div id='recipe"+r+"' class='cartDiv'>"+
+            "<ul class='cartList'>"+
+                "<li><h5 class='name'><b>"+r+". "+d[r-1].recipeName+"</b></h5></li><li class='description'>\""+d[r-1].description+"\"</li><li class='.price'><b>Price:</b> $"+d[r-1].price.toFixed(2)+"</li>"+
+            "</ul>"+
+        "</div>";
+
+        // FIX THIS
+        $(".cartDiv").append(add);
+        });
+
+    }); 
 
     // home button
     $("#home").click(function(){
