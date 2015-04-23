@@ -1,9 +1,7 @@
-/*
- * OrderLite Prototype
-*/
-
 body {
-  background-color: #CCCCCC;
+	background-color: #8aa1ab;
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
 }
 
 h1 {
@@ -18,12 +16,27 @@ h1 {
 }
 
 #order-list {
-	margin-bottom: 80px;
+	padding-left: 10px;
+}
+
+#order-cart {
+	padding-right: 10px;
+}
+
+#cart {
+	width: 30%;
+	height: 100%;
+	float: right;
+	position: relative;
+	background-color: white;
+	border: solid 1px black;
+	border-radius: 10px;
+	text-align: center;
 }
 
 .resultDiv {
-	width: 30%;
-	/*display: inline-block;*/
+	width: 22%;
+	height: 100%;
 	float: left;
 	position: relative;
 	background-color: white;
@@ -31,62 +44,42 @@ h1 {
 	border-radius: 10px;
 }
 
-#col1, #col2, #col3 {
-  position: absolute;
-  width: 33.10%;
-  height: 100%;
+.resultList {
+	list-style-type: none;
+	margin-right: 25px;
 }
 
-#col2 {
-  left: 33.10%;
+.resultList li {
+	font-size: 14px;
 }
 
-#col3 {
-  left: 66.20%;
+.cartDiv {
+	width: 100%;
+	position: relative;
+	background-color: white;
+	border: solid 1px black;
+	border-radius: 10px;
 }
 
-#o0, #o1, #o2 {
-  float: left;
-  width: 100%;
-  height: 32.5%;
+.cartList {
+	list-style-type: none;
 }
 
-#o3, #o4, #o5 {
-  float: left;
-  width: 100%;
-  height: 32.5%;
+h5 .name {
+	margin-bottom: 5px;
+	text-font: bold;
 }
 
-#o6, #o7, #o8 {
-  float: left;
-  width: 100%;
-  height: 32.5%;
+.orderPicture {
+	max-width: 150px;
+	max-height: auto;
+	min-width: 45px;
+	min-height: auto;
+	overflow: hidden;
+	margin-top: 15px;
+	padding: 5px;
 }
 
-#timers {
-  background-color: #FFFFFF;
-  position: absolute;
-  float: left;
-  height: 80%;
-  width: 22%;
-  left: 1%;
-}
-
-#orders {
-  background-color: #FFFFFF;
-  position: absolute;
-  float: left;
-  height: 80%;
-  width: 75%;
-  left: 24%;
-}
-
-#form {
-  background-color: #FFFFFF;
-  position: absolute;
-  float: right;
-  height: 7%;
-  width: 98%;
-  top: 90%;
-  left: 1%;
+.description {
+	font-style: italic;
 }
