@@ -4,6 +4,6 @@ $(document).ready(function(){
   console.log("page loaded");
 });
 
-$(".create-order").click(function(){
+$("#create-order").click(function(){
 	document.location.href = "order.html";
 });
