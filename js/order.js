@@ -54,7 +54,7 @@ function loadOptions(){
 }
 
 function addListeners(){
-    // hover and action for each item
+    // hover and action for each recipe item
     $(".resultDiv").hover(function(){
         $(this).css("background-color","#E5E5E3");
     }, function(){
@@ -68,18 +68,16 @@ function addListeners(){
         r = r.replace(/\D/g,'');
         $.getJSON('json/Recipes.json', function (data) {
             var d = data.Recipes;
-            //var recipe = d.filter(function(d){return d.recipeID == r});
-            //console.log(d[r-1].description);
             var add = "<div id='recipe"+r+"' class='cartDiv'>"+
             "<ul class='cartList'>"+
-                "<li><h5 class='name'><b>"+r+". "+d[r-1].recipeName+"</b></h5></li><li class='description'>\""+d[r-1].description+"\"</li><li class='.price'><b>Price:</b> $"+d[r-1].price.toFixed(2)+"</li>"+
+                "<li><b>"+r+". "+d[r-1].recipeName+"</b></li><li class='.price'><b>Price:</b> $"+d[r-1].price.toFixed(2)+"</li>"+
             "</ul>"+
-        "</div>";
+            "</div>";
 
-        // FIX THIS
-        $(".cartDiv").append(add);
+        $("#cart").append(add);
+
+        addCartListeners();
         });
-
     }); 
 
     // home button
@@ -91,5 +89,18 @@ function addListeners(){
         }
         else
             window.location = "index.html";
+    });
+}
+
+function addCartListeners(){
+    // hover and action for each cart item
+    $(".cartDiv").hover(function(){
+        $(this).css("background-color","#E5E5E3");
+    }, function(){
+        $(this).css("background-color","white");
+    });
+
+    $(".cartDiv").off("click").on("click", function(){
+        $(this).remove();
     });
 }
