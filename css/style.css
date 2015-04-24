@@ -16,27 +16,13 @@ h1 {
 }
 
 #order-list {
-	padding-left: 10px;
-}
-
-#order-cart {
-	padding-right: 10px;
-}
-
-#cart {
-	width: 30%;
-	height: 100%;
-	float: right;
-	position: relative;
-	background-color: white;
-	border: solid 1px black;
-	border-radius: 10px;
-	text-align: center;
+	padding-left: 3px;
 }
 
 .resultDiv {
-	width: 22%;
-	height: 100%;
+	max-width: 24%;
+	width: auto;
+	height: auto;
 	float: left;
 	position: relative;
 	background-color: white;
@@ -46,23 +32,49 @@ h1 {
 
 .resultList {
 	list-style-type: none;
-	margin-right: 25px;
 }
 
 .resultList li {
 	font-size: 14px;
 }
 
-.cartDiv {
-	width: 100%;
+#order-cart {
+	padding-right: 3px;
+}
+
+#your-order {
+	float: right;
+	padding: 25px;
+}
+
+
+#cart {
+	width: 24%;
+	max-width: 24%;
+	height: auto;
+	float: right;
 	position: relative;
 	background-color: white;
 	border: solid 1px black;
 	border-radius: 10px;
+
+}
+
+
+.cartDiv {
+	width: 100%;
+	height: auto;
+	position: relative;
+	background-color: white;
+	border-bottom: dotted 2px black;
 }
 
 .cartList {
 	list-style-type: none;
+}
+
+.resultList li {
+	font-size: 10px;
 }
 
 h5 .name {
