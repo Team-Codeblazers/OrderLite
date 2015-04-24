@@ -75,15 +75,10 @@ function addListeners(){
             "</div>";
 
         $("#cart").append(add);
+
+        addCartListeners();
         });
     }); 
-
-    // hover and action for each cart item
-    $(".cartDiv").hover(function(){
-        $(this).css("background-color","#E5E5E3");
-    }, function(){
-        $(this).css("background-color","white");
-    });
 
     // home button
     $("#home").click(function(){
@@ -94,5 +89,18 @@ function addListeners(){
         }
         else
             window.location = "index.html";
+    });
+}
+
+function addCartListeners(){
+    // hover and action for each cart item
+    $(".cartDiv").hover(function(){
+        $(this).css("background-color","#E5E5E3");
+    }, function(){
+        $(this).css("background-color","white");
+    });
+
+    $(".cartDiv").off("click").on("click", function(){
+        $(this).remove();
     });
 }
