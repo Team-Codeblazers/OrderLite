@@ -102,5 +102,10 @@ function addCartListeners(){
 
     $(".cartDiv").off("click").on("click", function(){
         $(this).remove();
+        // FIX THIS
+        // freeze 'next' button if nothing is in cart
+        console.log($("#cart").length);
+        if($("#cart").length === 0)
+            $("#next").addClass("disabled");
     });
 }
