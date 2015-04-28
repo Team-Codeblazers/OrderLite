@@ -12,7 +12,7 @@ CREATE TABLE Recipe (
   recipeName varchar(100) DEFAULT NULL,
   rating float DEFAULT NULL,
   description varchar(10000),
-  ingredient varchar(50000) DEFAULT NULL,
+  ingredient varchar(10000) DEFAULT NULL,
   picture varchar(10000) DEFAULT NULL,
   price float DEFAULT NULL,
   PRIMARY KEY (recipeID)
@@ -21,7 +21,7 @@ CREATE TABLE Recipe (
 LOCK TABLES Recipe WRITE;
 /*!40000 ALTER TABLE Recipe DISABLE KEYS */;
 
-INSERT INTO Recipe (recipeID, recipeName, rating, ingredient, picture, price)
+INSERT INTO Recipe (recipeID, recipeName, rating, ingredient,description, picture, price)
 VALUE
 	(1, "classic burger", 5, "THe classical Original","original bun, beef patty, lettuce, tomato, onion, pickle, ketchup", "" , 4.00),
 	(2, "veggie burger", 4.5, "Substitute for the heathens","lettuce bun, bean patty, tomato, onion, pickle, honey mustard", "", 3.25);
