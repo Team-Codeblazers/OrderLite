@@ -1,6 +1,6 @@
 // counter for items in cart
 //XAMPP
-var rootURL = "../../OrderLite/api/index.php";
+var rootURL = "../api/index.php";
 //MAMP
 //var rootURL = "http://localhost:8888/OrderLite/api/index.php";
 
