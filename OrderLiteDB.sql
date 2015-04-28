@@ -198,7 +198,7 @@ VALUES
 /*!40000 ALTER TABLE SearchHistory ENABLE KEYS */;
 UNLOCK TABLES;
 
-/*
+
 #create logged in user 
 drop user 'loggedIn'@'localhost';
 FLUSH PRIVILEGES;
@@ -208,7 +208,7 @@ CREATE USER 'loggedIn'@'localhost' IDENTIFIED BY '123';
 grant select, insert, delete, update, drop on OrderLite.Results to 'loggedIn'@'localhost';
 grant select, insert, delete on OrderLite.SearchHistory to 'loggedIn'@'localhost';
 grant select (foodName, timesAdded), update (timesAdded) on OrderLite.Ingredient to 'loggedIn'@'localhost';
-grant select on OrderLite.Filter to 'loggedIn'@'localhost';
+#grant select on OrderLite.Filter to 'loggedIn'@'localhost';
 grant update, select, insert on OrderLite.Recipe to 'loggedIn'@'localhost';
 
 
@@ -220,7 +220,7 @@ CREATE USER 'unLoggedIn'@'localhost' IDENTIFIED BY '123';
 grant select, insert, delete, update, drop on OrderLite.Results to 'unLoggedIn'@'localhost';
 grant select on OrderLite.SearchHistory to 'unLoggedIn'@'localhost';
 grant select (foodName, timesAdded), update (timesAdded) on OrderLite.Ingredient to 'unLoggedIn'@'localhost';
-grant select on OrderLite.Filter to 'unLoggedIn'@'localhost';
+#grant select on OrderLite.Filter to 'unLoggedIn'@'localhost';
 grant update, select, insert on OrderLite.Recipe to 'unLoggedIn'@'localhost';
 
 

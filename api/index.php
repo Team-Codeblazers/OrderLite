@@ -56,7 +56,7 @@ function newRecipe($name, $ingredients)
 	$con = getConnection();
 	
 	$con->query("Insert into Recipe (recipeName, Ingredient) VALUES ('$name','$ingredients')");	
-	con->close()
+	con->close();
 	
 }
 
@@ -242,7 +242,7 @@ function getAnalytics()
     $request = $app->request()->getBody();
     //initialize arrays 
     $foodNames = array();
-    $mostSaved = array ();
+    $mostSaved = array();
     $mostClicked = array();
     $return = array();
     $counter = 0;
@@ -410,7 +410,7 @@ function login()
     $name = $_POST['name'];
 
 
-    $query = $con->prepare("select firstname from users where username = ? and pw = ?");
+    $query = $con->prepare("select firstname from Users where username = ? and pw = ?");
      
     $query->bind_param('ss', $name, $decodedPW);
     $query->execute();
