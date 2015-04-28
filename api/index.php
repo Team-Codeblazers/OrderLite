@@ -96,10 +96,11 @@ function newItem()
 	
 	$sql = "Insert into Recipe (recipeName, rating, description, ingredient, price) VALUES 
 		('$recName','$rating','$description','$ingredient','price')";
-	$stmt = $mysqli -> prepare($sql);
+	$stmt = $con -> prepare($sql);
 	$stmt -> bind_param('ssss', $recName, $rating, $description, $ingredient, $price);
 	$stmt -> execute();
-	$stmt -> close()
+	$stmt -> close();
+	$con->close();
 } //end newItem
 
 
