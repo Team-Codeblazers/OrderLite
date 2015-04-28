@@ -93,9 +93,17 @@ h1 {
 	
 }
 
+#empty {
+	font-weight: bold;
+	right: 105px;
+	position: absolute;
+	top: 320px;
+}
+
 .disabled {
 	pointer-events: none;
 	opacity: 0.4;
+	color: gray;
 }
 
 h5 .name {

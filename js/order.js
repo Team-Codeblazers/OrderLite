@@ -1,3 +1,7 @@
+// counter for items in cart
+var items = 0;
+var entireOrder = [];
+
 $(document).ready(function () {
     load();
 });
@@ -8,6 +12,7 @@ function load() {
 
 function loadOptions(){
     $(".resultDiv").remove();
+    entireOrder = [];
 
     // Get data from file as JSON
     $.getJSON('json/Recipes.json', function (data) {
@@ -63,11 +68,21 @@ function addListeners(){
 
     // click to add to cart
     $(".resultDiv").off("click").on("click", function(){
+        // remove empty notice for cart
+        $("#empty").empty();
+        // increase item counter
+        ++items;
+
         // find id of recipe being added
         r = $(this).context.id;
         r = r.replace(/\D/g,'');
         $.getJSON('json/Recipes.json', function (data) {
             var d = data.Recipes;
+            // add item to array of order items
+            var current = {"recipeID": r, "recipeName": d[r-1].recipeName, "ingredients": d[r-1].ingredients, "price": d[r-1].price};
+            entireOrder[items-1] = current;
+            console.log(entireOrder[items-1]);
+            // populate order cart
             var add = "<div id='recipe"+r+"' class='cartDiv'>"+
             "<ul class='cartList'>"+
                 "<li><b>"+r+". "+d[r-1].recipeName+"</b></li><li class='.price'><b>Price:</b> $"+d[r-1].price.toFixed(2)+"</li>"+
@@ -84,12 +99,27 @@ function addListeners(){
     $("#home").click(function(){
         if(window.location.pathname === "/orderlite/order.html") {
             var r = confirm("Are you sure you want to leave?");
-            if (r === true)
+            if (r === true){
+
                 window.location.href = "index.html";
+            }
         }
         else
             window.location = "index.html";
     });
+
+    // next button
+    $("#next").click(function(){
+        console.log(items);
+        // accounting for h3 title
+        if (items === 0 && $("#empty").length > 0){
+            $("#empty").append("<p>Your cart is empty!</p>");
+        }
+
+        else {
+            alert("Now we're cookin'.");
+        }
+    })
 }
 
 function addCartListeners(){
@@ -100,12 +130,11 @@ function addCartListeners(){
         $(this).css("background-color","white");
     });
 
+    // click to remove from cart
     $(".cartDiv").off("click").on("click", function(){
         $(this).remove();
-        // FIX THIS
-        // freeze 'next' button if nothing is in cart
-        console.log($("#cart").length);
-        if($("#cart").length === 0)
-            $("#next").addClass("disabled");
+        --items;
+        entireOrder.splice(items);
+        //console.log(entireOrder[items-1]["recipeName"]);
     });
 }
