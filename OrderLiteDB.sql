@@ -11,24 +11,25 @@ CREATE TABLE Recipe (
   recipeID int(11) unsigned NOT NULL AUTO_INCREMENT,
   recipeName varchar(100) DEFAULT NULL,
   rating float DEFAULT NULL,
-  Ingredient varchar(50000) DEFAULT NULL,
+  description varchar(10000),
+  ingredient varchar(50000) DEFAULT NULL,
   picture varchar(10000) DEFAULT NULL,
-  timesClicked int(11) NOT NULL DEFAULT 0,
+  price float DEFAULT NULL,
   PRIMARY KEY (recipeID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES Recipe WRITE;
 /*!40000 ALTER TABLE Recipe DISABLE KEYS */;
 
-INSERT INTO Recipe (recipeID, recipeName, rating, Ingredient, picture, timesClicked)
+INSERT INTO Recipe (recipeID, recipeName, rating, ingredient, picture, price)
 VALUE
-	(1, "classic burger", 5, "original bun, beef patty, lettuce, tomato, onion, pickle, ketchup", "" , 0),
-	(2, "veggie burger", 4.5, "lettuce bun, bean patty, tomato, onion, pickle, honey mustard", "", 2);
+	(1, "classic burger", 5, "THe classical Original","original bun, beef patty, lettuce, tomato, onion, pickle, ketchup", "" , 4.00),
+	(2, "veggie burger", 4.5, "Substitute for the heathens","lettuce bun, bean patty, tomato, onion, pickle, honey mustard", "", 3.25);
 
 /*!40000 ALTER TABLE Recipe ENABLE KEYS */;
 UNLOCK TABLES;
 
-
+/*
 # Dump of table filter
 # ------------------------------------------------------------
 
@@ -47,7 +48,7 @@ CREATE TABLE Filter (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES Filter WRITE;
-/*!40000 ALTER TABLE Filter DISABLE KEYS */;
+/*!40000 ALTER TABLE Filter DISABLE KEYS ;
 
 
 INSERT INTO Filter (recipeID, glutenFree, vegetarian, vegan, noNuts, lactoseFree, calories)
@@ -56,8 +57,8 @@ VALUES
 	(2,1,1,1,1,1,350);
 
 
-/*!40000 ALTER TABLE Filter ENABLE KEYS */;
-UNLOCK TABLES;
+/*!40000 ALTER TABLE Filter ENABLE KEYS ;
+UNLOCK TABLES;*/
 
 # Dump of table ingredient
 # ------------------------------------------------------------
@@ -95,28 +96,29 @@ VALUES
 /*!40000 ALTER TABLE Ingredient ENABLE KEYS */;
 UNLOCK TABLES;
 
-# Dump of table Category
+# Dump of table Orders
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS Category;
+DROP TABLE IF EXISTS Orders;
 
-CREATE TABLE Category (
-	categoryID int(11) unsigned NOT NULL,
-	categoryName varchar(50) DEFAULT NULL,
-	KEY categoryID (categoryID)
+CREATE TABLE Orders (
+	orderID int(11) unsigned NOT NULL,
+	recipeID int(11) unsigned NOT NULL,
+	PRIMARY KEY (orderID),
+	CONSTRAINT `RecipeFK` FOREIGN KEY (`recipeID`) REFERENCES `Recipe` (`recipeID`) ON DELETE CASCADE ON UPDATE CASCADE
 )	ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES Category WRITE;
-/*!40000 ALTER TABLE Category DISABLE KEYS */;
+LOCK TABLES Orders WRITE;
+/*!40000 ALTER TABLE Orders DISABLE KEYS */;
 
-INSERT INTO Category (categoryID, categoryName)
+INSERT INTO Orders (orderID, recipeID)
 VALUES
-	(1, "buns"),
-	(2, "patties"),
-	(3, "toppings"),
-	(4, "condiments");
+	(1, 1),
+	(2, 1),
+	(3, 2),
+	(4, 2);
 
-/*!40000 ALTER TABLE Category ENABLE KEYS */;
+/*!40000 ALTER TABLE Orders ENABLE KEYS */;
 UNLOCK TABLES;
 
 # Dump of table results
@@ -168,7 +170,7 @@ VALUES
 	(11,'user@me.com','MTIzNDU=','user','2014-12-08 20:11:57',1),
 	(12,'test@me.com','cGFzc3dvcmQ=','test','2014-12-08 20:11:58',1);
 
-/*!40000 ALTER TABLE users ENABLE KEYS */;
+/*!40000 ALTER TABLE Users ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -196,7 +198,7 @@ VALUES
 /*!40000 ALTER TABLE SearchHistory ENABLE KEYS */;
 UNLOCK TABLES;
 
-
+/*
 #create logged in user 
 drop user 'loggedIn'@'localhost';
 FLUSH PRIVILEGES;
