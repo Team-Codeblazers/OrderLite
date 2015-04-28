@@ -56,8 +56,28 @@ function newRecipe($name, $ingredients)
 	$con = getConnection();
 	
 	$con->query("Insert into Recipe (recipeName, Ingredient) VALUES ('$name','$ingredients')");	
-	con->close()
+	con->close();
 	
+}
+
+function addOrder()
+{
+	$con -> getConnection();
+	
+	$orders = $_GET['order']
+	$orderID = con->query('Select MAX(orderID) from Orders');
+	$orderID += 1;
+	
+	foreach($recipe as &$orders)
+	{
+		$sql = "Insert into Orders (orderID, recipeID) VALUES ((?),(?))";
+		$stmt = $con -> prepare($sql);
+		$stmt -> bind_param('ss', $orderID, $recipe,);
+		$stmt -> execute();
+		$stmt -> close();
+	}
+	
+	$con->close();
 }
 
 function newOrder($recipeID) 
@@ -97,7 +117,7 @@ function newItem()
 	$sql = "Insert into Recipe (recipeName, rating, description, ingredient, price) VALUES 
 		('$recName','$rating','$description','$ingredient','price')";
 	$stmt = $con -> prepare($sql);
-	$stmt -> bind_param('ssss', $recName, $rating, $description, $ingredient, $price);
+	$stmt -> bind_param('sssss', $recName, $rating, $description, $ingredient, $price);
 	$stmt -> execute();
 	$stmt -> close();
 	$con->close();
