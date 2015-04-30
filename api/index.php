@@ -91,7 +91,7 @@ function newOrder($recipeID)
 	{
 		if($count < 5)
 		{
-			$array[] = $rows
+			$array[] = $rows;
 		}
 		else
 		{
@@ -102,7 +102,7 @@ function newOrder($recipeID)
 	$date = date();
 	con->query("Insert into Orders (recipeID, recipeName, timeOrdered) VALUES ('$reci','$recn','$date')");
 	
-	con->close();
+	$con->close();
 }
 
 function newItem()
@@ -415,7 +415,7 @@ function saveRecipe()
     }
 }//end function
 
-
+/*
 //this function validates a login attempt 
 function login()
 {
@@ -459,7 +459,7 @@ function login()
     
     //return infromation
     echo json_encode($information);
-}//end funtion
+}//end funtion   */
 
 //this function registers a new user 
 function register()
