@@ -91,7 +91,11 @@ function newOrder($recipeID)
     {
         if($count < 5)
         {
+<<<<<<< HEAD
             $array[] = $rows;
+=======
+            $array[] = $rows
+>>>>>>> 2ed97bc11fc2de86432105f8972f0d86ec44b842
         }
         else
         {
@@ -102,7 +106,11 @@ function newOrder($recipeID)
     $date = date();
     con->query("Insert into Orders (recipeID, recipeName, timeOrdered) VALUES ('$reci','$recn','$date')");
     
+<<<<<<< HEAD
     $con->close();
+=======
+    con->close();
+>>>>>>> 2ed97bc11fc2de86432105f8972f0d86ec44b842
 }
 
 function newItem()
