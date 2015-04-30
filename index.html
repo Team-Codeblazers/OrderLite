@@ -31,6 +31,7 @@
   <form action="adminPortal.html">
     <button class="btn btn-default btn-lg indexButton" id="admin">Administrator Only</button>
   </form>
+  
 
 <!-- Register user -->
   <div id="register-form" title="Create new user" hidden="true">
@@ -71,7 +72,11 @@
 
   <div class="button-div">
     <p id="welcome" class="modal-button">Welcome, </p>
-    <button id="login" class="btn btn-default"><i class="fa fa-sign-in"></i> Login</button>
+										    <!--  btn btn-default btn-lg indexButton -->
+	<form action="signin.php">
+		<button class="btn btn-default btn indexButton" id="Login">Login</button>
+	</form>
+    <!--<button id="login" action="signin.php" class="btn btn-default"><i class="fa fa-sign-in"></i> Login</button>-->
     <button id="register" class="btn btn-default"><i class="fa fa-child"></i> Register</button>
     <button id="logout" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</button>
     <button id="admin" class="btn btn-default"><i class="fa fa-child"></i>Admin Portal</button>
@@ -84,5 +89,5 @@
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/order.js"></script>
 <script type="text/javascript" src="js/admin.js"></script>
-<!-- <script type="text/javascript" src="js/modal.js"></script> -->
+<!-- <script type="text/javascript" src="js/modal.js"></script> sometime adding changes works-->
 </html>

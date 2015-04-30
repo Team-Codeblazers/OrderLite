@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 DROP DATABASE IF EXISTS OrderLite;
 CREATE DATABASE OrderLite;
 USE OrderLite;
@@ -103,10 +102,10 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS Orders;
 
 CREATE TABLE Orders (
-	entryID int(11) unsigned NOT NULL AUTO_INCREMENT
+	entryID int(11) unsigned NOT NULL AUTO_INCREMENT,
 	orderID int(11) unsigned NOT NULL,
 	recipeID int(11) unsigned NOT NULL,
-	PRIMARY KEY (orderID),
+	PRIMARY KEY (entryID),
 	CONSTRAINT `RecipeFK` FOREIGN KEY (`recipeID`) REFERENCES `Recipe` (`recipeID`) ON DELETE CASCADE ON UPDATE CASCADE
 )	ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -178,7 +177,7 @@ UNLOCK TABLES;
 
 # Dump of table SearchHistory
 # ------------------------------------------------------------
-
+/*
 DROP TABLE IF EXISTS SearchHistory;
 
 CREATE TABLE SearchHistory (
@@ -191,14 +190,14 @@ CREATE TABLE SearchHistory (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES SearchHistory WRITE;
-/*!40000 ALTER TABLE SearchHistory DISABLE KEYS */;
+/*!40000 ALTER TABLE SearchHistory DISABLE KEYS //;
 
 INSERT INTO SearchHistory (id, username)
 VALUES
     (1,'user@me.com');
 
-/*!40000 ALTER TABLE SearchHistory ENABLE KEYS */;
-UNLOCK TABLES;
+/*!40000 ALTER TABLE SearchHistory ENABLE KEYS //;
+UNLOCK TABLES;*/
 
 /*
 #create logged in user 
@@ -403,7 +402,7 @@ VALUES
 /*!40000 ALTER TABLE Users ENABLE KEYS */;
 UNLOCK TABLES;
 
-
+/*
 # Dump of table SearchHistory
 # ------------------------------------------------------------
 
@@ -419,16 +418,16 @@ CREATE TABLE SearchHistory (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES SearchHistory WRITE;
-/*!40000 ALTER TABLE SearchHistory DISABLE KEYS */;
+/*!40000 ALTER TABLE SearchHistory DISABLE KEYS //;
 
 INSERT INTO SearchHistory (id, username)
 VALUES
     (1,'user@me.com');
 
-/*!40000 ALTER TABLE SearchHistory ENABLE KEYS */;
-UNLOCK TABLES;
+/*!40000 ALTER TABLE SearchHistory ENABLE KEYS //;
+UNLOCK TABLES;*/
 
-
+/*
 #create logged in user 
 drop user 'loggedIn'@'localhost';
 FLUSH PRIVILEGES;

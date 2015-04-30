@@ -1,7 +1,7 @@
 <?php
     include('login.php');
     if (isset($_SESSION['login_user'])) {
-        header("location: homePage.php");
+        header("location: index.html");
     }
 ?>
 
@@ -32,40 +32,23 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-
-                </button>
-                <a href="/SPOTS/index.html">
-                    <img alt="" src="/SPOTS/img/spotslogo2.png" class="img-brand"></img>
-                </a>
+                
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="navbar-left">
                 
                 </div>
-                <ul class="nav navbar-nav navbar-right">
-                    
-                    <li> <form action="/SPOTS/loginPage.php" class="inline"><button class="dlink btn btn-lg btn-info"  style="outline:none"> 
-                        <i class="fa fa-1x fa-street-view"> </i>Register </button></form></li>
-                    
-                </ul>
+                
             </div>
         </div>
     </div>
     
     	<div style="margin-top:80px" class="centered">
-                <h2>Sign in to <img alt="" src="/SPOTS/img/spotslogo2.png" class="img-brand"></img> </h2></br></br>
+                <h2>Sign in </h2></br></br>
         
         
         <form method = "post" action="">
-        	<span style="padding: 0 20px">&nbsp;</span><label>User Type:  </label> 
-                <select name="select"> 
-                        <option value="Driver">Driver</option> 
-                        <option value="Homeowner">Homeowner</option>
+        	<span style="padding: 0 20px">&nbsp;</span>
 
                 </select> 
             <label>Username: </label><input type="text" name="username"/><br/><br/>
