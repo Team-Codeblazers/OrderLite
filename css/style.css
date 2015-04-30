@@ -8,7 +8,7 @@ h1 {
   text-align: center;
 }
 
-#create-order {
+.indexButton {
 	text-align: center;
 	display: block;
 	margin: auto;
@@ -150,4 +150,19 @@ h5 .name {
 
 .description {
 	font-style: italic;
+}
+
+/* admin page */
+label {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 50%;
+	text-align: right;
+}
+
+input, select {
+	display: inline-block;
+	float: left;
+	margin-bottom: 5px;
 }

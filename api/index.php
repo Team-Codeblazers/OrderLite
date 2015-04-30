@@ -53,74 +53,82 @@ function getConnection($user = 'root', $pw = 'root', $host = 'localhost')
 
 function newRecipe($name, $ingredients)
 {
-	$con = getConnection();
-	
-	$con->query("Insert into Recipe (recipeName, Ingredient) VALUES ('$name','$ingredients')");	
-	con->close();
-	
+    $con = getConnection();
+    
+    $con->query("Insert into Recipe (recipeName, Ingredient) VALUES ('$name','$ingredients')"); 
+    con->close();
+    
 }
 
 function addOrder()
 {
-	$con -> getConnection();
-	
-	$orders = $_GET['order']
-	$orderID = con->query('Select MAX(orderID) from Orders');
-	$orderID += 1;
-	
-	foreach($recipe as &$orders)
-	{
-		$sql = "Insert into Orders (orderID, recipeID) VALUES ((?),(?))";
-		$stmt = $con -> prepare($sql);
-		$stmt -> bind_param('ss', $orderID, $recipe,);
-		$stmt -> execute();
-		$stmt -> close();
-	}
-	
-	$con->close();
+    $con -> getConnection();
+    
+    $orders = $_GET['order']
+    $orderID = con->query('Select MAX(orderID) from Orders');
+    $orderID += 1;
+    
+    foreach($recipe as &$orders)
+    {
+        $sql = "Insert into Orders (orderID, recipeID) VALUES ((?),(?))";
+        $stmt = $con -> prepare($sql);
+        $stmt -> bind_param('ss', $orderID, $recipe,);
+        $stmt -> execute();
+        $stmt -> close();
+    }
+    
+    $con->close();
 }
 
 function newOrder($recipeID) 
 {
-	$con = getConnection();
-	
-	$reci = $con->query('Select recipeID from Recipe where recipeID=$recipeID');
-	$recn = $con->query('Select recipeName from Recipe where recipeID=$recipeID');
-	
-	while ($rows = mysqli_fetch_row($result))
-	{
-		if($count < 5)
-		{
-			$array[] = $rows;
-		}
-		else
-		{
-			break;
-		}
-		$count = $count + 1;
-	}
-	$date = date();
-	con->query("Insert into Orders (recipeID, recipeName, timeOrdered) VALUES ('$reci','$recn','$date')");
-	
-	$con->close();
+    $con = getConnection();
+    
+    $reci = $con->query('Select recipeID from Recipe where recipeID=$recipeID');
+    $recn = $con->query('Select recipeName from Recipe where recipeID=$recipeID');
+    
+    while ($rows = mysqli_fetch_row($result))
+    {
+        if($count < 5)
+        {
+<<<<<<< HEAD
+            $array[] = $rows;
+=======
+            $array[] = $rows
+>>>>>>> 2ed97bc11fc2de86432105f8972f0d86ec44b842
+        }
+        else
+        {
+            break;
+        }
+        $count = $count + 1;
+    }
+    $date = date();
+    con->query("Insert into Orders (recipeID, recipeName, timeOrdered) VALUES ('$reci','$recn','$date')");
+    
+<<<<<<< HEAD
+    $con->close();
+=======
+    con->close();
+>>>>>>> 2ed97bc11fc2de86432105f8972f0d86ec44b842
 }
 
 function newItem()
 {
-	$con = getConnection();
-	$recName = $_GET['recipeName'];
-	$rating = $_GET['rating'];
-	$description = $_GET['description']
-	$ingredient = $_GET['ingredient'];
-	$price = $_GET['price'];
-	
-	$sql = "Insert into Recipe (recipeName, rating, description, ingredient, price) VALUES 
-		('$recName','$rating','$description','$ingredient','price')";
-	$stmt = $con -> prepare($sql);
-	$stmt -> bind_param('sssss', $recName, $rating, $description, $ingredient, $price);
-	$stmt -> execute();
-	$stmt -> close();
-	$con->close();
+    $con = getConnection();
+    $recName = $_GET['recipeName'];
+    $rating = $_GET['rating'];
+    $description = $_GET['description']
+    $ingredient = $_GET['ingredient'];
+    $price = $_GET['price'];
+    
+    $sql = "Insert into Recipe (recipeName, rating, description, ingredient, price) VALUES 
+        ('$recName','$rating','$description','$ingredient','price')";
+    $stmt = $con -> prepare($sql);
+    $stmt -> bind_param('sssss', $recName, $rating, $description, $ingredient, $price);
+    $stmt -> execute();
+    $stmt -> close();
+    $con->close();
 } //end newItem
 
 
@@ -229,7 +237,7 @@ function deleteFavorites()
             $sql->bind_param('si', $_SESSION['username'], $recipeID);
             $sql->execute();
 
-			//get current number of times that recipe has been saved 
+            //get current number of times that recipe has been saved 
             $stmt = $con->prepare("SELECT rating FROM recipe WHERE recipeName = ?");
             $stmt->bind_param('s', $recipeName);
             $stmt->execute(); 
@@ -284,8 +292,8 @@ function getAnalytics()
         if (mysqli_num_rows($result) != 0)
         {
         //store information in results
-   	        while($counter < 5 && $r = mysqli_fetch_assoc($result)) 
-   	        {
+            while($counter < 5 && $r = mysqli_fetch_assoc($result)) 
+            {
                 $foodNames[] = $r;
                 $counter += 1 ;
             } 
@@ -304,8 +312,8 @@ function getAnalytics()
         if (mysqli_num_rows($result1) != 0)
         {
         //store information in results
-   	        while($counter < 5 && $r = mysqli_fetch_assoc($result1)) 
-   	        {
+            while($counter < 5 && $r = mysqli_fetch_assoc($result1)) 
+            {
                 $mostClicked[] = $r;
                 $counter = $counter + 1 ;
             } 
@@ -323,8 +331,8 @@ function getAnalytics()
         if (mysqli_num_rows($result2) != 0)
         {
         //store information in results
-   	        while($counter < 5 && $r = mysqli_fetch_assoc($result2)) 
-   	        {
+            while($counter < 5 && $r = mysqli_fetch_assoc($result2)) 
+            {
                 $mostSaved[] = $r;
                 $counter = $counter + 1 ;
             } 
@@ -346,7 +354,7 @@ function getAnalytics()
 //this function saves a recipe 
 function saveRecipe()
 {
-	$app = \Slim\Slim::getInstance();
+    $app = \Slim\Slim::getInstance();
     $request = $app->request()->getBody();
     
     try
@@ -377,19 +385,19 @@ function saveRecipe()
             $count = $tempCount;
         }
 
-		if ($count == 0) //ensure that each recipe can only be saved once by checking if it has already been saved by that user 
+        if ($count == 0) //ensure that each recipe can only be saved once by checking if it has already been saved by that user 
         {
             //prepare statement 
             $sql = $con->prepare("INSERT INTO searchHistory (username, id) values (?, ?)");    
-			$sql->bind_param('si', $_SESSION['username'], $recipeID);
-			$sql->execute();
+            $sql->bind_param('si', $_SESSION['username'], $recipeID);
+            $sql->execute();
                 
             //retrive current rating 
-			$stmt = $con->prepare("select rating from recipe where recipeName = ?");
+            $stmt = $con->prepare("select rating from recipe where recipeName = ?");
             $stmt->bind_param('s', $recipeName);
-  			$stmt->execute(); 
-			$rating;
-			$stmt->bind_result($rating);
+            $stmt->execute(); 
+            $rating;
+            $stmt->bind_result($rating);
             //incrment rating 
             while ($stmt->fetch())
             {
@@ -420,7 +428,7 @@ function saveRecipe()
 function login()
 {
     $con = getConnection();
-	$app = \Slim\Slim::getInstance();
+    $app = \Slim\Slim::getInstance();
     $request = $app->request()->getBody();
     $information = array();
 
@@ -465,7 +473,7 @@ function login()
 function register()
 {
     $con = getConnection();
-	$app = \Slim\Slim::getInstance();
+    $app = \Slim\Slim::getInstance();
     $request = $app->request()->getBody();
     $information = array();
     
@@ -479,7 +487,7 @@ function register()
     
     //chech if the username is already taken 
     if ($sql->num_rows != 0) 
-	{
+    {
         $userExists = TRUE;
     }
     
@@ -519,16 +527,16 @@ function getRecipe()
 {
 
     $con = getConnection($_SESSION['loggedInUsername'], $_SESSION['loggedInPW']);
-	$app = \Slim\Slim::getInstance();
+    $app = \Slim\Slim::getInstance();
     $timesClicked;
     
     try
     {
-		$results = array();
-		$rows = array();
+        $results = array();
+        $rows = array();
 
-		//replace + with space 
-		$recipeName = $_GET['recipeName']; 
+        //replace + with space 
+        $recipeName = $_GET['recipeName']; 
         
         //increment the nuber of times that recipe has been selected 
         $stmt = $con->prepare("select timesClicked from recipe where recipeName = ? ");
@@ -544,13 +552,13 @@ function getRecipe()
         $sql2->bind_param('is', $timesClicked, $recipeName);
         $sql2->execute(); 
         
-		$sql = "select recipeName, instruction, time, rating, ingredients, picture, calories from recipe natural join filter where recipeName = '".$recipeName."'"; 
-		$result = $con->query($sql);
+        $sql = "select recipeName, instruction, time, rating, ingredients, picture, calories from recipe natural join filter where recipeName = '".$recipeName."'"; 
+        $result = $con->query($sql);
 
-		if (mysqli_num_rows($result) != 0)
-		{
-			$results = mysqli_fetch_assoc($result);
-		}
+        if (mysqli_num_rows($result) != 0)
+        {
+            $results = mysqli_fetch_assoc($result);
+        }
     }
     catch (Exception $e)
     {
@@ -563,8 +571,8 @@ function getRecipe()
 function getResult() {
     
     
-	$con = getConnection($_SESSION['loggedInUsername'], $_SESSION['loggedInPW']);
-	$app = \Slim\Slim::getInstance();
+    $con = getConnection($_SESSION['loggedInUsername'], $_SESSION['loggedInPW']);
+    $app = \Slim\Slim::getInstance();
     //create variables to store information
 
     $ingredients = array();
@@ -589,146 +597,146 @@ function getResult() {
     $con->query($sql);
 
     //store all information from json, input from user 
-		foreach ($_GET as $part)
-		{
+        foreach ($_GET as $part)
+        {
 
-			if(array_key_exists("ing", $part ))
-			{   
-				$ingredient = $con->real_escape_string($part['ing']);
-				$ingredients[] = $ingredient;
-				 
-				//increment the number of times that ingredient is searched for
-				
-				$query = "select timesSearched from ingredient where foodName = ? ";
-				$stmt = $con->prepare($query);
-				$stmt->bind_param('s', $ingredient);
-				$stmt->execute();
-				$timesSearched;
-				$stmt->bind_result($timesSearched);
-				while ($stmt->fetch())
-				{
-					$timesSearched = $timesSearched + 1;
-					$timesSearched = (int)$timesSearched;
-				}
-					
-				$q = "UPDATE ingredient SET timesSearched = ? where foodName = ? ";
-				$sql = $con->prepare($q);
-				$sql1 = $con->prepare($q);
-				 $sql1->bind_param('is', $timesSearched, $ingredient);
-				$sql1->execute(); 
-			}
-			
-			if(array_key_exists("restriction", $part ))
-			{
-				$filter = $con->real_escape_string($part['restriction']);
-				$filters[] = $filter; 
-			}
-			if(array_key_exists("method", $part ))
-			{
-				$method = $con->real_escape_string($part['method']);
-				$methods[] = $method;
-			}
-			if(array_key_exists("time", $part ))
-			{
-				$time = $part['time'];
-			}
-			if(array_key_exists("noning", $part ))
-			{
-				$noIngredient = $con->real_escape_string($part['noning']);
-				$noIngredients[] = $noIngredient;
-			}  
-			if(array_key_exists("calories", $part ))
-			{
-				$calories = (int)$part['calories'];
-			} 
-			if(array_key_exists("numberOfIngredients", $part ))
-			{
-				$numberOfIngredients = (int)$part['numberOfIngredients'];
-			} 
-			
-		}
+            if(array_key_exists("ing", $part ))
+            {   
+                $ingredient = $con->real_escape_string($part['ing']);
+                $ingredients[] = $ingredient;
+                 
+                //increment the number of times that ingredient is searched for
+                
+                $query = "select timesSearched from ingredient where foodName = ? ";
+                $stmt = $con->prepare($query);
+                $stmt->bind_param('s', $ingredient);
+                $stmt->execute();
+                $timesSearched;
+                $stmt->bind_result($timesSearched);
+                while ($stmt->fetch())
+                {
+                    $timesSearched = $timesSearched + 1;
+                    $timesSearched = (int)$timesSearched;
+                }
+                    
+                $q = "UPDATE ingredient SET timesSearched = ? where foodName = ? ";
+                $sql = $con->prepare($q);
+                $sql1 = $con->prepare($q);
+                 $sql1->bind_param('is', $timesSearched, $ingredient);
+                $sql1->execute(); 
+            }
+            
+            if(array_key_exists("restriction", $part ))
+            {
+                $filter = $con->real_escape_string($part['restriction']);
+                $filters[] = $filter; 
+            }
+            if(array_key_exists("method", $part ))
+            {
+                $method = $con->real_escape_string($part['method']);
+                $methods[] = $method;
+            }
+            if(array_key_exists("time", $part ))
+            {
+                $time = $part['time'];
+            }
+            if(array_key_exists("noning", $part ))
+            {
+                $noIngredient = $con->real_escape_string($part['noning']);
+                $noIngredients[] = $noIngredient;
+            }  
+            if(array_key_exists("calories", $part ))
+            {
+                $calories = (int)$part['calories'];
+            } 
+            if(array_key_exists("numberOfIngredients", $part ))
+            {
+                $numberOfIngredients = (int)$part['numberOfIngredients'];
+            } 
+            
+        }
 
-		//create all possible subsets of the ingredients 
-		$subset = createSubSet($ingredients);
+        //create all possible subsets of the ingredients 
+        $subset = createSubSet($ingredients);
 
-		//insert and search for all subsets 
-		foreach ($subset as $part)
-		{
-			searchDB($filters, $part, $methods, $time, $calories, $noIngredients, $numberOfIngredients);
-		}
-		if(empty($ingredients))
-		{
-			searchDB($filters, $ingredients, $methods, $time, $calories, $noIngredients, $numberOfIngredients);
-		}
-		
-			
-			
-		if (isset($_SESSION['id']))
-		{
-			//check what of the results you have favorited 
-			$result1= $con->query("select distinct recipeName from recipe inner join  searchHistory on  recipe.recipeID = searchHistory.ID where username = '".$_SESSION['username']."'"); //execute query 
-			
-			if (!$result1)
-			{
-				throw new Exception(mysqli_error($con));
-			}
-			
-			if (mysqli_num_rows($result1) != 0)
-			{
-					//store information in results
-				while($r = mysqli_fetch_assoc($result1)) 
-				{
-					$saved[] = $r;
-				} 
-			}    
-		}
+        //insert and search for all subsets 
+        foreach ($subset as $part)
+        {
+            searchDB($filters, $part, $methods, $time, $calories, $noIngredients, $numberOfIngredients);
+        }
+        if(empty($ingredients))
+        {
+            searchDB($filters, $ingredients, $methods, $time, $calories, $noIngredients, $numberOfIngredients);
+        }
+        
+            
+            
+        if (isset($_SESSION['id']))
+        {
+            //check what of the results you have favorited 
+            $result1= $con->query("select distinct recipeName from recipe inner join  searchHistory on  recipe.recipeID = searchHistory.ID where username = '".$_SESSION['username']."'"); //execute query 
+            
+            if (!$result1)
+            {
+                throw new Exception(mysqli_error($con));
+            }
+            
+            if (mysqli_num_rows($result1) != 0)
+            {
+                    //store information in results
+                while($r = mysqli_fetch_assoc($result1)) 
+                {
+                    $saved[] = $r;
+                } 
+            }    
+        }
 
-		$result= $con->query("select distinct recipeName, time, recipe.rating, rankingPoints, calories, picture from recipe inner join  results on results.recipeID =  recipe.recipeID inner join filter on results.recipeID = filter.recipeID order by rankingPoints desc"); //execute query 
-			
-			//check what of the results you have favorited 
-		
-		if (!$result)
-		{
-			throw new Exception(mysqli_error($con));
-		}
-		
-		$issaved = FALSE;
-			
-		if (mysqli_num_rows($result) != 0)
-		{
-			//loop through saved to see if a recipe is already saved 
-			while($r = mysqli_fetch_assoc($result)) 
-			{
-				$issaved = FALSE;
-				
-				if(!empty($saved))
-				{
-					foreach ($saved as $recipe)
-					{
-						if($recipe['recipeName'] == $r['recipeName']) //if that recipe is in the saved list 
-						{
-							$issaved = true; 
-						}
-					}
-					if($issaved)
-					{
-						$r['saved'] = 'true';
-						$results[] = $r;
-					}
-					else 
-					{
-						$r['saved'] = 'false';
-						$results[] = $r;
-					}
-				}
-			
-				else
-				{
-					$r['saved'] = 'false';
-					$results[] = $r; 
-				}
-			}
-		}
+        $result= $con->query("select distinct recipeName, time, recipe.rating, rankingPoints, calories, picture from recipe inner join  results on results.recipeID =  recipe.recipeID inner join filter on results.recipeID = filter.recipeID order by rankingPoints desc"); //execute query 
+            
+            //check what of the results you have favorited 
+        
+        if (!$result)
+        {
+            throw new Exception(mysqli_error($con));
+        }
+        
+        $issaved = FALSE;
+            
+        if (mysqli_num_rows($result) != 0)
+        {
+            //loop through saved to see if a recipe is already saved 
+            while($r = mysqli_fetch_assoc($result)) 
+            {
+                $issaved = FALSE;
+                
+                if(!empty($saved))
+                {
+                    foreach ($saved as $recipe)
+                    {
+                        if($recipe['recipeName'] == $r['recipeName']) //if that recipe is in the saved list 
+                        {
+                            $issaved = true; 
+                        }
+                    }
+                    if($issaved)
+                    {
+                        $r['saved'] = 'true';
+                        $results[] = $r;
+                    }
+                    else 
+                    {
+                        $r['saved'] = 'false';
+                        $results[] = $r;
+                    }
+                }
+            
+                else
+                {
+                    $r['saved'] = 'false';
+                    $results[] = $r; 
+                }
+            }
+        }
     }
         
     catch (Exception $e)
@@ -801,8 +809,8 @@ function searchDB($filters, $ingredients, $methods, $time, $calories, $noIngredi
     {
         if(!empty($methods) && $methodCount == 0)
         {
-			$sql = $sql." and ";
-			$sql = $sql.$filter." and ";
+            $sql = $sql." and ";
+            $sql = $sql.$filter." and ";
         }
         else
         {
@@ -897,7 +905,7 @@ function searchDB($filters, $ingredients, $methods, $time, $calories, $noIngredi
             
     $noIngCount = $noIngCount +1 ;
     }
-		if(!empty($noIngredients))
+        if(!empty($noIngredients))
     {
         $sql = $sql." )";
     }
@@ -913,65 +921,65 @@ function searchInsert($sql, $ingredients)
     {
         $result= $con->query($sql);
 
-		if (!$result)
-		{
-			throw new Exception(mysqli_error($con));
-		}
+        if (!$result)
+        {
+            throw new Exception(mysqli_error($con));
+        }
 
-		if (mysqli_num_rows($result) > 0) 
-		{
-			while($r = mysqli_fetch_array($result)) 
-			{   
-				$recipeID = $r[0]; //get the id from the result
-				$ingredientPoints = 0;
-				//calculate the rating points for that recipe 
-				$stmt = "select sum(value) from recipeConnection where recipeID = ".$recipeID;
-				$result2= $con->query($stmt);
-				$row = mysqli_fetch_row($result2);
-				$totalPoints = $row[0]; //save the ranking points
-				
-				$ingredientPoints;
+        if (mysqli_num_rows($result) > 0) 
+        {
+            while($r = mysqli_fetch_array($result)) 
+            {   
+                $recipeID = $r[0]; //get the id from the result
+                $ingredientPoints = 0;
+                //calculate the rating points for that recipe 
+                $stmt = "select sum(value) from recipeConnection where recipeID = ".$recipeID;
+                $result2= $con->query($stmt);
+                $row = mysqli_fetch_row($result2);
+                $totalPoints = $row[0]; //save the ranking points
+                
+                $ingredientPoints;
 
-				foreach ($ingredients as $ingredient)
-				{
-					$stmt = "select value from recipeConnection where recipeID = ".$recipeID." and foodName = '".$ingredient."'";
-					$result1= $con->query($stmt);
-					$row = mysqli_fetch_row($result1);
-					$ingredientPoints = $ingredientPoints + $row[0];
-				}
-				
-				$ranking = $ingredientPoints / $totalPoints;
+                foreach ($ingredients as $ingredient)
+                {
+                    $stmt = "select value from recipeConnection where recipeID = ".$recipeID." and foodName = '".$ingredient."'";
+                    $result1= $con->query($stmt);
+                    $row = mysqli_fetch_row($result1);
+                    $ingredientPoints = $ingredientPoints + $row[0];
+                }
+                
+                $ranking = $ingredientPoints / $totalPoints;
 
-				$sq = $con->prepare("select rankingPoints from results where recipeID =  ?");
-				$sq->execute();
-				$sq->store_result();
-				$num_of_rows = $sq->num_rows;  
-				$sq->bind_result($tempRP);
-				$RP = 0;
-				if ($num_of_rows == 0)
-				{
-					$sql = $con->prepare("INSERT INTO results(recipeID, rankingPoints) values (?,?)");
-					$sql->bind_param('id', $recipeID, $ranking);
-					$sql->execute();
-				}
-				while ($sq->fetch()) 
-				{
-					$RP = $tempRP;
-				}
-				if($RP < $ranking)
-				{
-					$sq2 = $con->prepare("UPDATE results SET rankingPoints = ? WHERE recipeID = ?");
-					$sq2->bind_param('di', $ranking, $recipeID);
-					$sq2->execute();
-				}
-			}
-		}
-		else 
-		{
-			//return if you have no matches 
-			return;
-		}
-	}//end try block 
+                $sq = $con->prepare("select rankingPoints from results where recipeID =  ?");
+                $sq->execute();
+                $sq->store_result();
+                $num_of_rows = $sq->num_rows;  
+                $sq->bind_result($tempRP);
+                $RP = 0;
+                if ($num_of_rows == 0)
+                {
+                    $sql = $con->prepare("INSERT INTO results(recipeID, rankingPoints) values (?,?)");
+                    $sql->bind_param('id', $recipeID, $ranking);
+                    $sql->execute();
+                }
+                while ($sq->fetch()) 
+                {
+                    $RP = $tempRP;
+                }
+                if($RP < $ranking)
+                {
+                    $sq2 = $con->prepare("UPDATE results SET rankingPoints = ? WHERE recipeID = ?");
+                    $sq2->bind_param('di', $ranking, $recipeID);
+                    $sq2->execute();
+                }
+            }
+        }
+        else 
+        {
+            //return if you have no matches 
+            return;
+        }
+    }//end try block 
     catch(Exception $e)
     {
         echo $e->getMessage();
@@ -981,22 +989,22 @@ function searchInsert($sql, $ingredients)
 //create a list of subsets og a set as aelements in a set and call search for all of them 
 function createSubSet($in,$minLength = 1)
 { 
-	$count = count($in); 
-	$members = pow(2,$count); 
-	$return = array(); 
-	for ($i = 0; $i < $members; $i++) 
-	{ 
-		$b = sprintf("%0".$count."b",$i); 
-		$out = array(); 
-		for ($j = 0; $j < $count; $j++) 
-		{ 
-			if ($b{$j} == '1') $out[] = $in[$j]; 
-		} 
-		if (count($out) >= $minLength) 
-		{ 
-			$return[] = $out; 
-		} 
-	} 
+    $count = count($in); 
+    $members = pow(2,$count); 
+    $return = array(); 
+    for ($i = 0; $i < $members; $i++) 
+    { 
+        $b = sprintf("%0".$count."b",$i); 
+        $out = array(); 
+        for ($j = 0; $j < $count; $j++) 
+        { 
+            if ($b{$j} == '1') $out[] = $in[$j]; 
+        } 
+        if (count($out) >= $minLength) 
+        { 
+            $return[] = $out; 
+        } 
+    } 
     return $return; 
 }
 

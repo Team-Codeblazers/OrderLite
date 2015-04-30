@@ -1,10 +1,10 @@
-// counter for items in cart
 var items = 0;
 var entireOrder = [];
 
-$(document).ready(function () {
-    load();
-});
+// window.onload = function () {
+// console.log("orders loading");
+// load();
+// };
 
 function load() {
     loadOptions();
@@ -24,7 +24,7 @@ function loadOptions(){
             $.each(data.Recipes, function (key, recipe) {
                 var ingr = "";
                 if($("#recipe"+recipe.recipeID).has("recipeID").length === 0){
-                    var add = "<div id='recipe"+recipe.recipeID+"' class='resultDiv'><img class='orderPicture' src='img/recipes/"+recipe.recipeID+".jpeg' id='picture"+recipe.recipeID+"' alt='picture"+recipe.recipeID+"'><ul class='resultList'></ul></div>";
+                    var add = "<div id='recipe"+recipe.recipeID+"' class='resultDiv'><img class='orderPicture' src='"+recipe.picture+"' id='picture"+recipe.recipeID+"' alt='picture"+recipe.recipeID+"'><ul class='resultList'></ul></div>";
 
                     $("#order-list").append(add);
 
@@ -94,19 +94,6 @@ function addListeners(){
         addCartListeners();
         });
     }); 
-
-    // home button
-    $("#home").click(function(){
-        if(window.location.pathname === "/orderlite/order.html") {
-            var r = confirm("Are you sure you want to leave?");
-            if (r === true){
-
-                window.location.href = "index.html";
-            }
-        }
-        else
-            window.location = "index.html";
-    });
 
     // next button
     $("#next").click(function(){

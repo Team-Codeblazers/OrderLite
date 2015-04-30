@@ -1,0 +1,67 @@
+<!--
+  OrderLite Prototype
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- JQuery UI -->
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+  <!-- Bootstrap -->
+  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+  <title>Twisted Root</title> 
+</head>
+
+<body>
+  <div id="nav">
+    <button class="btn btn-default" id="home">Home
+    </div>
+
+
+    <!-- Main body -->
+    <div>
+      <h1>Welcome to the Admin Portal. Change your template here.</h1>
+        <span style="padding: 0 20px">&nbsp;</span><label>Background color:</label> 
+        <select name="bg-color" id="bg-color"> 
+          <option value="default">default</option>
+          <option value="red">red</option> 
+          <option value="orange">orange</option>
+          <option value="yellow">yellow</option>
+          <option value="green">green</option>
+          <option value="blue">blue</option>
+          <option value="purple">purple</option>
+          <option value="gray">gray</option>
+        </select> 
+        <label>Username: </label><input type="text" name="username"/><br/><br/>
+        <label>Password: </label><input type="password" name="password" /><br/><br/><br/>
+        <button class="btn btn-default btn-lg" id="submit-admin">Submit your Changes</button>
+
+    </div>
+
+
+    <div class="button-div">
+      <p id="welcome" class="modal-button">Welcome, </p>
+      <button id="login" class="modal-button"><i class="fa fa-sign-in"></i> Login</button>
+      <button id="register" class="modal-button"><i class="fa fa-child"></i> Register</button>
+      <button id="logout" class="modal-button"><i class="fa fa-sign-out"></i> Logout</button>
+      <button id="admin" class="modal-button"><i class="fa fa-child"></i>Admin Portal</button>
+
+    <!--
+    <button id="developers" class="modal-button"><i class="fa fa-desktop"></i> Developers</button>
+  -->
+</div>
+</body>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/order.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
+</html>

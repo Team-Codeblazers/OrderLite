@@ -9,23 +9,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" >
+  <!-- JQuery -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- JQuery UI -->
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+  <!-- Bootstrap -->
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
   <title>Twisted Root</title>
 </head>
-<body>
+
+<body onload="load()">
   <div id="nav">
     <button class="btn btn-default" id="home">Home
     </button>
   </div>
 
   <h1>What would you like to order?</h1>
-  <div id="order-list">
-  </div>
   <div id="order-cart">
     <div id="cart">
       <h3>Your Order</h3>
+    </div>
+    <div id="order-list">
     </div>
     <button class="btn btn-default" id="next">Next
     </button>
@@ -83,4 +88,5 @@
 </body>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/order.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
 </html>

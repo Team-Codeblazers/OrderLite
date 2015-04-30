@@ -9,11 +9,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" >
+  <!-- JQuery -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- JQuery UI -->
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+  <!-- Bootstrap -->
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
   <title>Twisted Root</title> 
 </head>
+
 <body>
   <div id="nav">
         <button class="btn btn-default" id="home">Home
@@ -21,7 +26,10 @@
   <h1>Welcome to Twisted Root</h1>
 
   <form action="order.html">
-    <button class="btn btn-default btn-lg" id="create-order">Create Your Order</button>
+    <button class="btn btn-default btn-lg indexButton" id="create-order">Create Your Order</button>
+  </form>
+  <form action="adminPortal.html">
+    <button class="btn btn-default btn-lg indexButton" id="admin">Administrator Only</button>
   </form>
 
 <!-- Register user -->
@@ -63,10 +71,10 @@
 
   <div class="button-div">
     <p id="welcome" class="modal-button">Welcome, </p>
-    <button id="login" class="modal-button"><i class="fa fa-sign-in"></i> Login</button>
-    <button id="register" class="modal-button"><i class="fa fa-child"></i> Register</button>
-    <button id="logout" class="modal-button"><i class="fa fa-sign-out"></i> Logout</button>
-    <button id="admin" class="modal-button"><i class="fa fa-child"></i>Admin Portal</button>
+    <button id="login" class="btn btn-default"><i class="fa fa-sign-in"></i> Login</button>
+    <button id="register" class="btn btn-default"><i class="fa fa-child"></i> Register</button>
+    <button id="logout" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</button>
+    <button id="admin" class="btn btn-default"><i class="fa fa-child"></i>Admin Portal</button>
 
     <!--
     <button id="developers" class="modal-button"><i class="fa fa-desktop"></i> Developers</button>
@@ -75,4 +83,6 @@
 </body>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/order.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
+<!-- <script type="text/javascript" src="js/modal.js"></script> -->
 </html>
