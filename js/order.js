@@ -29,13 +29,12 @@ function loadOptions(){
                     $("#order-list").append(add);
 
                     console.log(recipe.recipeName);
-                    $.each(recipe.ingredients, function(key, ingredient) {
-                        ingr += ingredient + ', ';           
-                    });
+                    // $.each(recipe.ingredients, function(key, ingredient) {
+                    //     ingr += ingredient + ', ';           
+                    // });
 
-                    ingr = ingr.replace(/,\s*$/, "");
-                    $("#recipe"+recipe.recipeID+">ul").append("<li><h5 class='name'><b>"+recipe.recipeID+". "+recipe.recipeName+"</b></h5></li><li class='description'>\""+recipe.description+"\"</li><li class='ingredientList'><b>Ingredients:</b> "+ingr+"</li><li class='.price'><b>Price:</b> $"+recipe.price.toFixed(2)+"</li>");
-
+                    // ingr = ingr.replace(/,\s*$/, "");
+                    $("#recipe"+recipe.recipeID+">ul").append("<li><h5 class='name'><b>"+recipe.recipeID+". "+recipe.recipeName+"</b></h5></li><li class='calories'><b>Calories: </b>"+recipe.calories+"</li><li class='description'>\""+recipe.description+"\"</li><li class='ingredientList'><b>Ingredients:</b> "+recipe.ingredients+"</li><li class='.price'><b>Price:</b> $"+recipe.price.toFixed(2)+"</li>");
                 }
 
                 var divs = $(".resultDiv");
@@ -104,7 +103,7 @@ function addListeners(){
         }
 
         else {
-            alert("Now we're cookin'.");
+            alert("Please pay at the register.");
         }
     })
 }

@@ -19,7 +19,7 @@
   <title>Twisted Root</title> 
 </head>
 
-<body>
+<body onload="load()">
   <div id="nav">
     <button class="btn btn-default" id="home">Home
     </div>
@@ -39,9 +39,16 @@
           <option value="purple">purple</option>
           <option value="gray">gray</option>
         </select> 
-        <label>Username: </label><input type="text" name="username"/><br/><br/>
-        <label>Password: </label><input type="password" name="password" /><br/><br/><br/>
-        <button class="btn btn-default btn-lg" id="submit-admin">Submit your Changes</button>
+        <label>Add menu item below:</label>
+        <label>Item ID:</label><input type="number" min="1" name="itemID" id="itemID"/>
+        <label>Item name:</label><input type="text" name="itemName" id="itemName"/>
+        <label>Item description:</label><input type="text" name="itemDescr" id="itemDescr"/>
+        <label>Item ingredients:</label><input type="text" name="itemIngr" id="itemIngr"/>
+        <label>Item picture link:</label><input type="text" name="itemPic" id="itemPic"/>
+        <label>Item calories:</label><input type="number" min="0" max="100000" name="itemCal" id="itemCal"/>
+        <label>Item price:</label><input type="number" min="0" step="0.01" name="itemPrice" id="itemPrice"/>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button class="btn btn-default btn-lg" id="submit-admin" style="margin:0">Submit your Changes</button>
 
     </div>
 
@@ -61,7 +68,5 @@
 
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/order.js"></script>
-<script type="text/javascript" src="js/modal.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/admin.js"></script>
 </html>
