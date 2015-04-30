@@ -4,7 +4,6 @@ var rootURL = "http://localhost/OrderLite/api/index.php";
 //MAMP
 //var rootURL = "http://localhost:8888/OrderLite/api/index.php";
 
-
 var items = 0;
 var entireOrder = [];
 
@@ -30,7 +29,7 @@ function loadOptions(){
             $.each(data.Recipes, function (key, recipe) {
                 var ingr = "";
                 if($("#recipe"+recipe.recipeID).has("recipeID").length === 0){
-                    var add = "<div id='recipe"+recipe.recipeID+"' class='resultDiv'><img class='orderPicture' src='img/recipes/"+recipe.recipeID+".jpeg' id='picture"+recipe.recipeID+"' alt='picture"+recipe.recipeID+"'><ul class='resultList'></ul></div>";
+                    var add = "<div id='recipe"+recipe.recipeID+"' class='resultDiv'><img class='orderPicture' src='"+recipe.picture+"' id='picture"+recipe.recipeID+"' alt='picture"+recipe.recipeID+"'><ul class='resultList'></ul></div>";
 
                     $("#order-list").append(add);
 

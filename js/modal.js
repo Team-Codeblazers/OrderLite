@@ -1,9 +1,11 @@
+// counter for items in cart
 //XAMPP
 var rootURL = "http://localhost/OrderLite/api/index.php";
 //MAMP
 //var rootURL = "http://localhost:8888/OrderLite/api/index.php";
 
 //google.load('visualization', '1.0', {'packages':['corechart', 'table']});
+
 
 if(localStorage.getItem("username")=== null || localStorage.getItem("username")==="null"){
   $("#admin").hide();
