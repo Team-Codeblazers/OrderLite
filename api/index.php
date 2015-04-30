@@ -56,7 +56,7 @@ function newRecipe($name, $ingredients)
     $con = getConnection();
     
     $con->query("Insert into Recipe (recipeName, Ingredient) VALUES ('$name','$ingredients')"); 
-    $con->close();
+    con->close();
     
 }
 
@@ -64,15 +64,15 @@ function addOrder()
 {
     $con -> getConnection();
     
-    $orders = $_GET['order'];
-    //$orderID = $con->query('Select MAX(orderID) from Orders');
-    //$orderID += 1;
+    $orders = $_GET['order']
+    $orderID = con->query('Select MAX(orderID) from Orders');
+    $orderID += 1;
     
     foreach($recipe as &$orders)
     {
         $sql = "Insert into Orders (orderID, recipeID) VALUES ((?),(?))";
         $stmt = $con -> prepare($sql);
-        $stmt -> bind_param('ss', $orderID, $recipe);
+        $stmt -> bind_param('ss', $orderID, $recipe,);
         $stmt -> execute();
         $stmt -> close();
     }
@@ -100,7 +100,7 @@ function newOrder($recipeID)
         $count = $count + 1;
     }
     $date = date();
-    $con->query("Insert into Orders (recipeID, recipeName, timeOrdered) VALUES ('$reci','$recn','$date')");
+    con->query("Insert into Orders (recipeID, recipeName, timeOrdered) VALUES ('$reci','$recn','$date')");
     
     $con->close();
 }
@@ -110,7 +110,7 @@ function newItem()
     $con = getConnection();
     $recName = $_GET['recipeName'];
     $rating = $_GET['rating'];
-    $description = $_GET['description'];
+    $description = $_GET['description']
     $ingredient = $_GET['ingredient'];
     $price = $_GET['price'];
     
@@ -409,13 +409,13 @@ function saveRecipe()
         $con->close();
 
     }
-    catch (Exception $e)
+    ceatch (Exception $e)
     {
         $e->getMessage();
     }
 }//end function
 
-
+/*
 //this function validates a login attempt 
 function login()
 {
@@ -459,7 +459,7 @@ function login()
     
     //return infromation
     echo json_encode($information);
-}//end funtion
+}//end funtion   */
 
 //this function registers a new user 
 function register()

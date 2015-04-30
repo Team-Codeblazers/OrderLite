@@ -1,15 +1,10 @@
-// counter for items in cart
-//XAMPP
-var rootURL = "http://localhost/OrderLite/api/index.php";
-//MAMP
-//var rootURL = "http://localhost:8888/OrderLite/api/index.php";
-
 var items = 0;
 var entireOrder = [];
 
-$(document).ready(function () {
-    load();
-});
+// window.onload = function () {
+// console.log("orders loading");
+// load();
+// };
 
 function load() {
     loadOptions();
@@ -99,19 +94,6 @@ function addListeners(){
         addCartListeners();
         });
     }); 
-
-    // home button
-    $("#home").click(function(){
-        if(window.location.pathname === "/orderlite/order.html") {
-            var r = confirm("Are you sure you want to leave?");
-            if (r === true){
-
-                window.location.href = "index.html";
-            }
-        }
-        else
-            window.location = "index.html";
-    });
 
     // next button
     $("#next").click(function(){
