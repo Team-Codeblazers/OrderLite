@@ -6,7 +6,7 @@
 
 	$error = '';
 	if (isset($_POST['submit'])) {
-		if (empty($_POST['name']) || empty($_POST['pw'])) {
+		if (empty($_POST['username']) || empty($_POST['password'])) {
 			$error = "Username or Password is invalid";
 		}
 		else {
@@ -36,9 +36,9 @@
 
 			if ($rows == 1) {
 				$_SESSION['login_user'] = $username; // starting session
-				header("Location: homePage.php");
+				header("Location: index.html");
 			} else {
-				$error = "Username of Passoword is Invalid";
+				$error = "Username of Passoword is Invalid, go fuck yourself";
 			}
 			mysql_close($conn);
 		}
